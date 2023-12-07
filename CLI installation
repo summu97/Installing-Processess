@@ -1,0 +1,46 @@
+NOTE: run all the commands manually.
+
+INSTALLATION OF CLI IN TERMINAL:
+
+sudo yum update -y 
+sudo yum install -y aws-cli
+aws --version
+
+ADD CREDENTIALS:
+
+aws configure
+AWS Access Key ID [None]: your access key
+AWS Secret Access Key [None]: your secret key
+Default region name [None]: your region
+Default output format [None]: table
+
+S3 BUCKET COMMANDS:
+TO CREATE
+aws s3 mb s3://bucket_name
+
+TO DELETE
+aws s3 rb s3://bucket_name
+
+TO LIST BUCKETS
+aws s3 ls
+
+TO LIST CONTENT IN BUCKET
+aws s3 ls s3://bucket_name
+
+COPY FILES FROM BUCKET TO SERVER
+aws s3 cp url_of_file .
+
+COPY FILES FROM SERVER TO BUCKET
+aws s3 cp file_name s3://bucket_name
+
+COPY FILES FROM BUCKET TO BUCKET
+aws s3 sync s3://source_bucket/ s3://destination_bucket/
+
+COPY CONTENT FROM FOLDER TO BUCKET
+aws s3 cp folder_name s3://bucket_name/ --recursive
+
+DELETE CONTENT/FILES/FOLDERS FROM BUCKET(only the content will be deleted)
+aws s3 rm s3://bucket_name/ --recursive
+
+DELETE PARTICULAR FILER/FOLDERS FROM BUCKET
+aws s3 rm url_of_file/folder --recursive
